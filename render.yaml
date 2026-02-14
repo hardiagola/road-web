@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: roadfix-buddy
+    env: node
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 18.x
+    routes:
+      - type: rewrite
+        source: "/*"
+        destination: "/index.html"
